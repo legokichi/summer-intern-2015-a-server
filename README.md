@@ -168,6 +168,27 @@ POST で `title_id` と 画像データを multi-part/formdata で送信
 }
 ```
 
+### LIKEを付ける
+
+LikeをPOSTで投稿
+
+* 場所
+
+`/favorite.php`
+
+* パラメータ
+
+POST で `illust_id` を送信
+
+* レスポンス例
+
+```
+{
+    "date": 1441346967 // UNIX TimeStamp
+    "illust_id": 42,
+}
+```
+
 ## DB設計
 
 * 今回は超簡潔、正規化は行いません
