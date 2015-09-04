@@ -133,7 +133,7 @@ GET で `/register_new_user.php` で得た `user_id` を渡す。
 
 * パラメータ
 
-POST で `title` (お題の文) を渡す。
+POST で `title`, `user_id` (お題の文) を渡す。
 
 * レスポンス例
 
@@ -156,7 +156,7 @@ POST で `title` (お題の文) を渡す。
 
 * パラメータ
 
-POST で `title_id` と 画像データを multi-part/formdata で送信
+POST で `title_id`, `user_id` と 画像データを multi-part/formdata で送信
 
 * レスポンス例
 
@@ -220,7 +220,6 @@ CREATE TABLE illust(
 
 ```
 CREATE TABLE like(
-    type INTEGER,
     date TEXT,
     illust_id INTEGER,
 )
