@@ -59,7 +59,7 @@
 
 * 場所
 
-`/get_responses.php`
+`/get_responses.php?id=1`
 
 * パラメータ
 
