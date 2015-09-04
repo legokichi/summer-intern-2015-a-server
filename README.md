@@ -184,3 +184,15 @@ CREATE TABLE title(
 )
 ```
 
+### イラストテーブル
+
+```
+CREATE TABLE illust(
+    illust_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title_id INTEGER,
+    title_user_id INTEGER,
+    user_id INTEGER,
+    likes INTEGER,
+    date TEXT,
+)
+```
