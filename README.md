@@ -185,7 +185,6 @@ POST で `illust_id` を送信
 ```
 {
     "date": 1441346967 // UNIX TimeStamp
-    "illust_id": 42,
 }
 ```
 
