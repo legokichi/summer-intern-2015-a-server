@@ -122,3 +122,48 @@ GET で `/register_new_user.php` で得た `user_id` を渡す。
     }
 ]
 ```
+
+### お題を投稿
+
+お題をPOSTで投稿
+
+* 場所
+
+`/post_title.php`
+
+* パラメータ
+
+POST で `title` (お題の文) を渡す。
+
+* レスポンス例
+
+```
+{
+    "title_id": 2,
+    "date": 1441346245, // UNIX Time Stamp
+    "title": "犬が波動拳を打っている絵が欲しい"
+    "count": 0,
+}
+```
+
+### 写真を投稿
+
+写真をPOSTで投稿
+
+* 場所
+
+`/post_illust.php`
+
+* パラメータ
+
+POST で `title_id` と 画像データを multi-part/formdata で送信
+
+* レスポンス例
+
+```
+{
+    "date": 1441346967 // UNIX TimeStamp
+    "illust_id": 42,
+    "illust_url": "http://hogehoge/img/42.jpg",
+}
+```
