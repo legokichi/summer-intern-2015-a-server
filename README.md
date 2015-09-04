@@ -39,13 +39,13 @@
 ```
 [
     {
-        "id": 2,
+        "title_id": 2,
         "date": 1441346245, // UNIX Time Stamp
         "title": "犬が波動拳を打っている絵が欲しい"
         "count": 0,
     },
     {
-        "id": 1,
+        "title_id": 1,
         "date": 1441346174, // UNIX Time Stamp
         "title": "縁側で寝ている猫の絵を下さい"
         "count": 1,
@@ -59,11 +59,11 @@
 
 * 場所
 
-`/get_responses.php?id=1`
+`/get_responses.php?title_id=1`
 
 * パラメータ
 
-GET で `/get_titles.php` で得た `id` を渡す。
+GET で `/get_titles.php` で得た `title_id` を渡す。
 
 * レスポンス例
 
@@ -108,15 +108,15 @@ GET で `/register_new_user.php` で得た `user_id` を渡す。
     {
         "type": 2 // 絵にlikeがついた
         "date": 1287427839, // unix time
-        "title": "縁側に寝ている猫の絵を下さい",
-        "id": 2,
-        "illust_id": 24,
+        "title": "友利奈緒の絵が見たいんですけど",
+        "title_id": 3,
+        "illust_id": 27,
         "illust_url": "http"//~~~~~~"
     }, {
         "type": 1 // お題に絵が帰ってきた
         "date": 1287427839, // unix time
         "title": "縁側に寝ている猫の絵を下さい",
-        "id": 2,
+        "title_id": 2,
         "illust_id": 24,
         "illust_url": "http"//~~~~~~"
     }
