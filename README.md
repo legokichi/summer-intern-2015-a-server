@@ -167,3 +167,20 @@ POST で `title_id` と 画像データを multi-part/formdata で送信
     "illust_url": "http://hogehoge/img/42.jpg",
 }
 ```
+
+## DB設計
+
+* 今回は超簡潔、正規化は行いません
+* 面倒なのでDBはSQLite3です
+
+### お題テーブル
+
+```
+CREATE TABLE title(
+    title_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    date TEXT,
+    title TEXT,
+)
+```
+
