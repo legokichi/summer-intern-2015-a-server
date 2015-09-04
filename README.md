@@ -75,9 +75,50 @@ GET で `/get_titles.php` で得た `id` を渡す。
     "responses": [ // 配列
         {
             "date": 1441346967 // UNIX TimeStamp
+            "illust_id": 42,
             "illust_url": "http://hogehoge/img/42.jpg",
             "like": 20 // Likeの数
         }
     ]
 }
+```
+
+### 通知取得
+
+自分のユーザーIDを渡して、メンション一覧を返す。
+
+返り値の`type`について、
+ * `1` -> お題に関する反応 (絵を返してきた)
+ * `2` -> 絵に対する反応 (Likeをつけてきた)
+
+それぞれ、時間・お題のタイトル・お題のID・イラストのID・イラストのURLが含まれる
+
+* 場所
+
+`/get_reactions.php?user_id=1`
+
+* パラメータ
+
+GET で `/register_new_user.php` で得た `user_id` を渡す。
+
+* レスポンス例
+
+```
+[
+    {
+        "type": 2 // 絵にlikeがついた
+        "date": 1287427839, // unix time
+        "title": "縁側に寝ている猫の絵を下さい",
+        "id": 2,
+        "illust_id": 24,
+        "illust_url": "http"//~~~~~~"
+    }, {
+        "type": 1 // お題に絵が帰ってきた
+        "date": 1287427839, // unix time
+        "title": "縁側に寝ている猫の絵を下さい",
+        "id": 2,
+        "illust_id": 24,
+        "illust_url": "http"//~~~~~~"
+    }
+]
 ```
