@@ -52,3 +52,32 @@
     }
 ]
 ```
+
+### お題に対する絵一覧
+
+お題のidを渡して、絵の一覧を返す。投稿日時・イラストの画像URL・♥の数を返す。
+
+* 場所
+
+`/get_responses.php`
+
+* パラメータ
+
+GET で `/get_titles.php` で得た `id` を渡す。
+
+* レスポンス例
+
+```
+{
+    "id": 1
+    "date": 1441346174, // UNIX Time Stamp
+    "title": "縁側で寝ている猫の絵を下さい"
+    "responses": [ // 配列
+        {
+            "date": 1441346967 // UNIX TimeStamp
+            "illust_url": "http://hogehoge/img/42.jpg",
+            "like": 20 // Likeの数
+        }
+    ]
+}
+```
