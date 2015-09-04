@@ -196,3 +196,13 @@ CREATE TABLE illust(
     date TEXT,
 )
 ```
+
+### お気に入りテーブル
+
+```
+CREATE TABLE like(
+    type INTEGER,
+    date TEXT,
+    illust_id INTEGER,
+)
+```
