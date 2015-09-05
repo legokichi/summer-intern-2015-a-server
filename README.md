@@ -221,6 +221,7 @@ CREATE TABLE illust(
 ```
 CREATE TABLE activity(
     _id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TYPE,
     date TEXT,
     illust_id INTEGER,
     title_id INTEGER,

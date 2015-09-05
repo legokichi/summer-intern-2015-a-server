@@ -57,9 +57,10 @@
     }
 
     // update activity table
-    $stmt = $db->prepare('INSERT INTO activity (date, illust_id, title_id, target_user_id)'
-                        .' VALUES (:date, :illust_id, :title_id, :target_user_id)');
+    $stmt = $db->prepare('INSERT INTO activity (type, date, illust_id, title_id, target_user_id)'
+                        .' VALUES (:type, :date, :illust_id, :title_id, :target_user_id)');
 
+    $stmt->bindValue(':type', 1, SQLITE3_INTEGER);
     $stmt->bindValue(':title_id', $illust_id, SQLITE3_INTEGER);
     $stmt->bindValue(':illust_id', $title_id, SQLITE3_INTEGER);
     $stmt->bindValue(':target_user_id', $target_id, SQLITE3_INTEGER);
