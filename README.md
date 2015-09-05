@@ -156,7 +156,7 @@ POST で `title`, `user_id` (お題の文) を渡す。
 
 * パラメータ
 
-POST で `title_id`, `user_id` と 画像データを multi-part/formdata で送信
+POST で `title_id`, `user_id` と 画像データ `file` を multi-part/formdata で送信
 
 * レスポンス例
 
