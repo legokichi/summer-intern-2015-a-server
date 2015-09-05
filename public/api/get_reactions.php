@@ -1,17 +1,18 @@
-[
-    {
-        "type": 2 // 絵にlikeがついた
-        "date": 1287427839, // unix time
-        "title": "友利奈緒の絵が見たいんですけど",
-        "title_id": 3,
-        "illust_id": 27,
-        "illust_url": "http"//~~~~~~"
-    }, {
-        "type": 1 // お題に絵が帰ってきた
-        "date": 1287427839, // unix time
-        "title": "縁側に寝ている猫の絵を下さい",
-        "title_id": 2,
-        "illust_id": 24,
-        "illust_url": "http"//~~~~~~"
+<?php
+    $db = new SQLite3('../database.db');
+
+    $results = $db->query('SELECT type, activity.date, activity.title_id, title, illust_id' .
+                          ' FROM activity LEFT JOIN title ON title.title_id = activity.title_id' .
+                          ' ORDER BY _id DESC LIMIT 100');
+    
+    if(!$results) {
+        http_response_code(500);
+        die();
+    } else {
+        $rows = array();
+        while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+            $rows []= $row;
+        }
+        echo json_encode($rows);
     }
-]
+?>
