@@ -216,11 +216,13 @@ CREATE TABLE illust(
 )
 ```
 
-### お気に入りテーブル
+### アクティビティテーブル
 
 ```
-CREATE TABLE like(
+CREATE TABLE activity(
+    _id INTEGER PRIMARY KEY AUTOINCREMENT,
     date TEXT,
     illust_id INTEGER,
+    title_id INTEGER,
 )
 ```
