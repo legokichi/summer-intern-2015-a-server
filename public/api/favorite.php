@@ -24,7 +24,7 @@
     // アクティビティテーブルを更新
 
     // イラストテーブルからタイトルIDを取得
-    $title = $db->querySingle("SELECT title_id, user_id FROM illust WHERE illust_id = $illust_id");
+    $title = $db->querySingle("SELECT title_id, user_id FROM illust WHERE illust_id = $illust_id", true);
     if(!$title) {
         http_response_code(500);
         echo json_encode(array('error' => 'cannot get title_id'));
