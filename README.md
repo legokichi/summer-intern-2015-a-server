@@ -224,5 +224,6 @@ CREATE TABLE activity(
     date TEXT,
     illust_id INTEGER,
     title_id INTEGER,
+    target_user_id INTEGER
 )
 ```
