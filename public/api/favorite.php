@@ -34,8 +34,9 @@
     $title_id = $title['title_id'];
     $target_id = $title['user_id'];
 
-    $stmt = $db->prepare('INSERT INTO activity (date, illust_id, title_id, target_user_id)'
-                        .' VALUES (:date, :illust_id, :title_id, :target_user_id)');
+    $stmt = $db->prepare('INSERT INTO activity (type, date, illust_id, title_id, target_user_id)'
+                        .' VALUES (:type, :date, :illust_id, :title_id, :target_user_id)');
+    $stmt->bindValue(':type', 2, SQLITE3_INTEGER);
     $stmt->bindValue(':date', $date, SQLITE3_TEXT);
     $stmt->bindValue(':illust_id', $title_id, SQLITE3_INTEGER);
     $stmt->bindValue(':title_id', $illust_id, SQLITE3_INTEGER);
