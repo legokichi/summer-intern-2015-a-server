@@ -193,6 +193,15 @@ POST で `illust_id` を送信
 * 今回は超簡潔、正規化は行いません
 * 面倒なのでDBはSQLite3です
 
+### ユーザーテーブル
+
+```
+CREATE TABLE user(
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT // 予約
+)
+```
+
 ### お題テーブル
 
 ```
@@ -228,3 +237,4 @@ CREATE TABLE activity(
     target_user_id INTEGER
 )
 ```
+
