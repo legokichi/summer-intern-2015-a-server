@@ -61,8 +61,8 @@
                         .' VALUES (:type, :date, :illust_id, :title_id, :target_user_id)');
 
     $stmt->bindValue(':type', 1, SQLITE3_INTEGER);
-    $stmt->bindValue(':title_id', $illust_id, SQLITE3_INTEGER);
-    $stmt->bindValue(':illust_id', $title_id, SQLITE3_INTEGER);
+    $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
+    $stmt->bindValue(':illust_id', $illust_id, SQLITE3_INTEGER);
     $stmt->bindValue(':target_user_id', $target_id, SQLITE3_INTEGER);
     $stmt->bindValue(':date', $date, SQLITE3_TEXT);
 
