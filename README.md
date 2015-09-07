@@ -41,12 +41,14 @@
     {
         "title_id": 2,
         "date": 1441346245, // UNIX Time Stamp
+        "user_name": "aaaaaaaaaaa",
         "title": "犬が波動拳を打っている絵が欲しい"
         "illusts" : [ ],
         "count": 0,
     },
     {
         "title_id": 1,
+        "user_name": "asdf",
         "date": 1441346174, // UNIX Time Stamp
         "title": "縁側で寝ている猫の絵を下さい",
         "illusts" : [
@@ -76,9 +78,11 @@ GET で `/get_titles.php` で得た `title_id` を渡す。
     "id": 1
     "date": 1441346174, // UNIX Time Stamp
     "title": "縁側で寝ている猫の絵を下さい"
+    "user_name": "asdf",
     "responses": [ // 配列
         {
             "date": 1441346967 // UNIX TimeStamp
+            "user_name": "tomorinao",
             "illust_id": 42,
             "illust_url": "http://hogehoge/img/42.jpg",
             "like": 20 // Likeの数
@@ -137,13 +141,14 @@ GET で `/register_new_user.php` で得た `user_id` を渡す。
 
 * パラメータ
 
-POST で `title`, `user_id` (お題の文) を渡す。
+POST で `title` (お題の文), `user_id`, `user_name` (名前)  を渡す。
 
 * レスポンス例
 
 ```
 {
     "title_id": 2,
+    "user_name": "tomorinao",
     "date": 1441346245, // UNIX Time Stamp
     "title": "犬が波動拳を打っている絵が欲しい"
     "count": 0,
@@ -160,13 +165,14 @@ POST で `title`, `user_id` (お題の文) を渡す。
 
 * パラメータ
 
-POST で `title_id`, `user_id` と 画像データ `file` を multi-part/formdata で送信
+POST で `title_id`, `user_id`, `user_name` (名前) と 画像データ `file` を multi-part/formdata で送信
 
 * レスポンス例
 
 ```
 {
     "date": 1441346967 // UNIX TimeStamp
+    "user_name": "no name",
     "illust_id": 42,
     "illust_url": "http://hogehoge/img/42.jpg",
 }
