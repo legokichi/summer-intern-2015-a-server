@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_POST['illust_id'])) {
+    if(!isset($_POST['illust_id']) || !ctype_digit($_POST['illust_id'])) {
         http_response_code(500);
         echo json_encode(array('error' => 'missing parameter'));
         exit();

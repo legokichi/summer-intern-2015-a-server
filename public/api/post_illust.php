@@ -10,7 +10,9 @@
     */
     if(!isset($_POST['title_id']) ||
        !isset($_POST['user_id']) || 
-       !isset($_FILES['file'])) { // 入力がない
+       !isset($_FILES['file']) ||
+       !ctype_digit($_POST['user_id'])
+    ) { // 入力がない
         http_response_code(500);
         echo json_encode(array('error' => 'Invalid parameter'));
         die();
