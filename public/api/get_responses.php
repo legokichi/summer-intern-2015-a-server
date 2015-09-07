@@ -1,20 +1,4 @@
 <?php
-    /*
-        [
-            {
-                "title_id": 2,
-                "date": 1441346245, // UNIX Time Stamp
-                "title": "犬が波動拳を打っている絵が欲しい"
-                "count": 0,
-            },
-            {
-                "title_id": 1,
-                "date": 1441346174, // UNIX Time Stamp
-                "title": "縁側で寝ている猫の絵を下さい"
-                "count": 1,
-            }
-        ]
-    */
 
     if(!isset($_GET['title_id'])) {
         http_response_code(500);
@@ -55,11 +39,16 @@
         $responses []= $response;
     }
 
-    echo json_encode(array(
-        'id' => $title_id,
-        'date' => $title_date,
-        'title' => $title_text,
-        'responses' => $responses
-    ));
-
+    if(!empty($responses)) {
+        echo json_encode(array(
+            'id' => $title_id,
+            'date' => $title_date,
+            'title' => $title_text,
+            'responses' => $responses
+        ));
+    } else {
+        http_response_code(404);
+        echo json_encode(array('error' => 'title not found'));
+        exit();
+    }
 ?>
