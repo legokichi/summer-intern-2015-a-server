@@ -212,6 +212,7 @@ CREATE TABLE user(
 CREATE TABLE title(
     title_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
+    user_name TEXT,
     date TEXT,
     title TEXT,
 )
@@ -223,6 +224,7 @@ CREATE TABLE title(
 CREATE TABLE illust(
     illust_id INTEGER PRIMARY KEY AUTOINCREMENT,
     title_id INTEGER,
+    user_name TEXT,
     user_id INTEGER,
     likes INTEGER,
     date TEXT,
