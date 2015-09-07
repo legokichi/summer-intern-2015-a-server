@@ -29,7 +29,7 @@
     $db = new SQLite3('../database.db');
 
     // title の作者を得る -> 無かったらエラー
-    $target_id = $db->querySingle("SELECT user_id FROM title WHERE user_id = '$user_id'");
+    $target_id = $db->querySingle("SELECT user_id FROM title WHERE title_id = '$title_id'");
     if(!$target_id) {
         http_response_code(500);
         echo json_encode(array('error' => 'No such title'));
