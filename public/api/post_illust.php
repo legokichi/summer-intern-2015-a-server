@@ -10,6 +10,7 @@
     */
     if(!isset($_POST['title_id']) ||
        !isset($_POST['user_id']) || 
+       !isset($_POST['user_name']) || 
        !isset($_FILES['file']) ||
        !ctype_digit($_POST['user_id'])
     ) { // 入力がない
@@ -19,6 +20,7 @@
     }
 
     $title_id = $_POST['title_id'];
+    $user_name = $_POST['user_name'];
     $user_id = $_POST['user_id'];
     $filedata = $_FILES['file'];
 
@@ -27,16 +29,17 @@
     $db = new SQLite3('../database.db');
 
     // title の作者を得る -> 無かったらエラー
-    $target_id = $db->querySingle("SELECT user_id FROM title WHERE user_id = '$user_id'");
+    $target_id = $db->querySingle("SELECT user_id FROM title WHERE title_id = '$title_id'");
     if(!$target_id) {
         http_response_code(500);
         echo json_encode(array('error' => 'No such title'));
         exit();
     }
 
-    $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, likes, date) VALUES (:title_id, :user_id, 0, :date)');
+    $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, user_name, likes, date) VALUES (:title_id, :user_id, :user_name, 0, :date)');
     $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
     $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
+    $stmt->bindValue(':user_name', $user_name, SQLITE3_TEXT);
     $stmt->bindValue(':date', $date, SQLITE3_TEXT);
 
     $result = $stmt->execute();
@@ -80,6 +83,7 @@
     echo json_encode(array(
         'illust_id' => $illust_id,
         'illust_url' => $illust_url,
+        'user_name' => $user_name,
         'date' => $date
     ));
 ?>
