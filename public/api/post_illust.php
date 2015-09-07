@@ -39,7 +39,7 @@
     $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, user_name, likes, date) VALUES (:title_id, :user_id, :user_name, 0, :date)');
     $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
     $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
-    $stmt->bindValue(':user_name', $user_name, SQLITE3_INTEGER);
+    $stmt->bindValue(':user_name', $user_name, SQLITE3_TEXT);
     $stmt->bindValue(':date', $date, SQLITE3_TEXT);
 
     $result = $stmt->execute();
