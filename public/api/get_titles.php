@@ -31,6 +31,7 @@
                 $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$illust['illust_id']}";
                 $title['illusts'][] = $illust_url;
             }
+            $title['count'] = count($title['illusts']);
             $titles []= $title;
         }
         echo json_encode($titles);
