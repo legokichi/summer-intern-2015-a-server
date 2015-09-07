@@ -23,11 +23,11 @@
     if(!$results) {
         http_response_code(500);
     } else {
-        $rows = array();
-        while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-            $rows []= $row;
+        $titles = array();
+        while ($title = $results->fetchArray(SQLITE3_ASSOC)) {
+            $titles []= $title;
         }
-        echo json_encode($rows);
+        echo json_encode($titles);
     }
 
 ?>
