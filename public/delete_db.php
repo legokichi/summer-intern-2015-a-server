@@ -20,7 +20,7 @@
     }
 
     // remove all images
-    array_map('unlink', glob("../img/*"));
+    array_map('unlink', glob("img/*"));
 
     header('Location: ./debug.php');
 ?>
