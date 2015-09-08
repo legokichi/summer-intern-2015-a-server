@@ -198,6 +198,53 @@ POST で `illust_id` を送信
 }
 ```
 
+### お題をLIKEする
+
+お題をLIKEする。
+
+* 場所
+
+`/like_title.php`
+
+* パラメータ
+
+POST で `title_id`, `user_id` を送信
+
+* レスポンス例
+
+```
+{
+    "date": 1441346967 // UNIX TimeStamp
+}
+```
+
+### LIKEしたお題の一覧を返す
+
+`user_id` を指定して LIKE したお題の一覧
+
+* 場所
+
+`/get_liked_titles.php`
+
+* パラメータ
+
+GET で `user_id` を送信
+
+* レスポンス例
+
+```
+[
+    {
+        "title_id": 2,
+        "date": 1441346245, // UNIX Time Stamp
+        "user_name": "aaaaaaaaaaa",
+        "title": "犬が波動拳を打っている絵が欲しい"
+        "illusts" : [ ],
+        "count": 0,
+    },
+]
+```
+
 ## DB設計
 
 * 今回は超簡潔、正規化は行いません
@@ -252,7 +299,7 @@ CREATE TABLE activity(
 
 ### お気に入りお題テーブル
 ```
-CREATE TABLE activity(
+CREATE TABLE like_title (
     _id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     title_id INTEGER,
