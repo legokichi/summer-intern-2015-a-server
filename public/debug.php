@@ -119,6 +119,19 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 
+<h2>Like Title</h2>
+<form class="form-inline" role="form" action="api/like_title.php" method="POST" target="result">
+  <div class="form-group">
+    <label for="title_id">title_id:</label>
+    <input type="number" value="1" class="form-control" name="title_id" id="title_id">
+  </div>
+  <div class="form-group">
+    <label for="user_id">user_id:</label>
+    <input type="number" class="form-control" id="user_id" name="user_id">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
 <h2>Result</h2>
 <iframe name="result"></iframe>
 
