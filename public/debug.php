@@ -88,7 +88,7 @@
 </form>
 
 <h2>Post Illust</h2>
-<form class="form-inline" role="form" action="api/post_illust.php" method="POST" target="result">
+<form enctype="multipart/form-data" class="form-inline" role="form" action="api/post_illust.php" method="POST" target="result">
   <div class="form-group">
     <label for="title_id">title_id:</label>
     <input type="number" class="form-control" id="title_id" name="title_id">
