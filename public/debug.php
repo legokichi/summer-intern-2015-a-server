@@ -63,6 +63,7 @@
     // output_table($db, 'user');
     output_table($db, 'title');
     output_table($db, 'illust');
+    output_table($db, 'like_title');
     output_table($db, 'activity');
 ?>
 
