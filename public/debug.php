@@ -34,7 +34,7 @@
 <h1>Tables</h1>
 </div>
 
-<p><a href="api/barus.php" class="btn btn-lg btn-danger">初期化</a></p>
+<p><a href="delete_db.php" class="btn btn-lg btn-danger">初期化</a></p>
 
 <?php
     function output_table($db, $tblname){

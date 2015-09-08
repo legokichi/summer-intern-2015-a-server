@@ -1,9 +1,4 @@
-<form method="POST">
-<input type="submit" name="barus" value="バルス">
-</form>
 <?php
-    if(!isset($_POST['barus'])) exit();
-
     $queries = array(
         "DROP TABLE IF EXISTS title;",
         "DROP TABLE IF EXISTS illust;",
@@ -26,7 +21,7 @@
     // remove all images
     array_map('unlink', glob("../img/*"));
 
-    echo ('<img src="http://middle-edge.jp/file/parts/I0000604/abf86a576cf524c2167c5e8614fd271e.jpg">');
+    header('Location: ./debug.php');
 ?>
 
 
