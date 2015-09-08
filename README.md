@@ -250,3 +250,12 @@ CREATE TABLE activity(
 )
 ```
 
+### お気に入りお題テーブル
+```
+CREATE TABLE activity(
+    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    title_id INTEGER,
+    date TEXT,
+)
+```
