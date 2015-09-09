@@ -6,13 +6,22 @@
         exit();
     }
 
+    $where_title_id = '';
+
+    if(isset($_GET['title_id'])) {
+        $title_id = $_GET['title_id'];
+        if(ctype_digit($title_id)) {
+            $where_title_id = " AND like_title.title_id = $title_id";
+        }
+    }
+
     $user_id = $_GET['user_id'];
 
     $db = new SQLite3('../database.db');
     $cols = 'title.title_id, title.user_id, title.user_name, title.title, like_title.date';
     $results = $db->query("SELECT $cols FROM like_title "
                            . 'LEFT JOIN title ON title.title_id = like_title.title_id '
-                           . "WHERE like_title.user_id = $user_id");
+                           . "WHERE like_title.user_id = $user_id" . $where_title_id);
     
     if(!$results) {
         http_response_code(500);
