@@ -31,6 +31,8 @@
 
     $responses = array();
     while ($response = $result->fetchArray(SQLITE3_ASSOC)) {
+        $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$response['illust_id']}";
+        $response['illust_url'] = $illust_url;
         $responses []= $response;
     }
 
