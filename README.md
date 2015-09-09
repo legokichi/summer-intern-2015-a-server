@@ -44,6 +44,7 @@
         "user_name": "aaaaaaaaaaa",
         "title": "犬が波動拳を打っている絵が欲しい"
         "illusts" : [ ],
+        "illust_ids" : [ ],
         "count": 0,
     },
     {
@@ -51,6 +52,9 @@
         "user_name": "asdf",
         "date": 1441346174, // UNIX Time Stamp
         "title": "縁側で寝ている猫の絵を下さい",
+        "illust_ids" : [
+            1
+        ]
         "illusts" : [
             "http://hogehoge/img/1",
         ]

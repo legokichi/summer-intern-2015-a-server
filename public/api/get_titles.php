@@ -27,9 +27,11 @@
         while ($title = $results->fetchArray(SQLITE3_ASSOC)) {
             $illustres = $db->query("SELECT illust_id FROM illust WHERE title_id = '{$title['title_id']}'");
             $title['illusts'] = array();
+            $title['illust_ids'] = array();
             while ($illust = $illustres->fetchArray(SQLITE3_ASSOC)) {
                 $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$illust['illust_id']}";
                 $title['illusts'][] = $illust_url;
+                $title['illust_ids'][] = $$illust['illust_id'];
             }
             $title['count'] = count($title['illusts']);
             $titles []= $title;
