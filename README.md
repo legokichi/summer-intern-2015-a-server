@@ -229,7 +229,7 @@ POST で `title_id`, `user_id` を送信
 
 * パラメータ
 
-GET で `user_id` を送信
+GET で `user_id` を送信。 `title_id` でタイトルIDの指定ができる
 
 * レスポンス例
 
@@ -300,7 +300,7 @@ CREATE TABLE activity(
 
 ### お気に入りお題テーブル
 ```
-CREATE TABLE like_title (
+CREATE TABLE like\_title (
     _id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     title_id INTEGER,
