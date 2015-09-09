@@ -31,7 +31,7 @@
             while ($illust = $illustres->fetchArray(SQLITE3_ASSOC)) {
                 $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$illust['illust_id']}";
                 $title['illusts'][] = $illust_url;
-                $title['illust_ids'][] = $$illust['illust_id'];
+                $title['illust_ids'][] = $illust['illust_id'];
             }
             $title['count'] = count($title['illusts']);
             $titles []= $title;
