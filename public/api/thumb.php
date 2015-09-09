@@ -1,10 +1,11 @@
 <?php
 $width = 200;
 $id = $_GET["illust_id"];
+if(!ctype_digit($id)) exit();
 $url = "../img/$id";
 
 // no cache -> create thumbnail
-if(!file_exists($url)){
+if(!file_exists("../img/thumb/$id")){
     list($image_w, $image_h) = getimagesize($url);
 
     $proportion = $image_w / $image_h;
