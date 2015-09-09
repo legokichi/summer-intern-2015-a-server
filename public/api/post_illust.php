@@ -15,14 +15,21 @@
        !ctype_digit($_POST['user_id'])
     ) { // 入力がない
         http_response_code(500);
-        echo json_encode(array('error' => 'Invalid parameter'));
+        echo json_encode(array('error' => 'Invalid parameter', 'post' => print_r($_POST, true)));
         die();
     }
+
 
     $title_id = $_POST['title_id'];
     $user_name = $_POST['user_name'];
     $user_id = $_POST['user_id'];
     $filedata = $_FILES['file'];
+
+    if($filedata['error']){
+        http_response_code(500);
+        echo json_encode(array('error' => 'Failed to Upload'));
+        die();
+    }
 
     $date = time();
 
@@ -36,11 +43,23 @@
         exit();
     }
 
-    $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, user_name, likes, date) VALUES (:title_id, :user_id, :user_name, 0, :date)');
+    $image_size = getimagesize($filedata['tmp_name']);
+
+    if(!$image_size) {
+        http_response_code(500);
+        echo json_encode(array('error' => 'Cannot get size'));
+        exit();
+    }
+
+    list($width, $height, $type, $attr) = $image_size;
+
+    $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, user_name, likes, date, width, height) VALUES (:title_id, :user_id, :user_name, 0, :date, :width, :height)');
     $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
     $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
     $stmt->bindValue(':user_name', $user_name, SQLITE3_TEXT);
     $stmt->bindValue(':date', $date, SQLITE3_TEXT);
+    $stmt->bindValue(':width', $width, SQLITE3_INTEGER);
+    $stmt->bindValue(':height', $height, SQLITE3_INTEGER);
 
     $result = $stmt->execute();
 
@@ -54,8 +73,8 @@
     $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/$illust_id";
 
     // upload file
-
-    if(!move_uploaded_file($filedata['tmp_name'], $uploaddir . $illust_id)) {
+    $uploadfile = $uploaddir . $illust_id;
+    if(!move_uploaded_file($filedata['tmp_name'], $uploadfile)) {
         http_response_code(500);
         echo json_encode(array('error' => 'Cannot save illust'));
         exit();

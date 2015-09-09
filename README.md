@@ -86,6 +86,8 @@ GET で `/get_titles.php` で得た `title_id` を渡す。
             "illust_id": 42,
             "illust_url": "http://hogehoge/img/42.jpg",
             "like": 20 // Likeの数
+            "width": 100,
+            "height": 100,
         }
     ]
 }
@@ -281,6 +283,8 @@ CREATE TABLE illust(
     user_name TEXT,
     user_id INTEGER,
     likes INTEGER,
+    width INTEGER,
+    height INTEGER,
     date TEXT,
 )
 ```

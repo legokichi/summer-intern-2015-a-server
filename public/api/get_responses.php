@@ -19,7 +19,7 @@
     $title_text = $title['title'];
     $title_user = $title['user_name'];
 
-    $stmt = $db->prepare('SELECT illust_id, title_id, user_id, user_name, likes, date FROM illust WHERE title_id = :title_id');
+    $stmt = $db->prepare('SELECT illust_id, title_id, user_id, user_name, likes, date, width, height FROM illust WHERE title_id = :title_id');
     $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
     $result = $stmt->execute();
 
