@@ -39,7 +39,7 @@
             $titles []= $title;
         }
 
-        array_multisort(array_column($titles, 'last_action'), SORT_DESC, $titles);
+        $titles = array_multisort(array_column($titles, 'last_action'), SORT_DESC, $titles);
 
         echo json_encode($titles);
     }
