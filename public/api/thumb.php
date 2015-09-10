@@ -19,9 +19,15 @@ if(!file_exists("../img/thumb/$id")){
 
     $image = imagecreatefromjpeg($url);
 
-
-    if(isset($exif_datas['Orientation']) && $exif_datas['Orientation'] == 6){
-        $image = imagerotate($image, 270, 0);
+    if(isset($exif_datas['Orientation'])){
+        switch ($exif_datas['Orientation']) {
+        case 6:
+                $image = imagerotate($image, 270, 0);
+            break;
+        case 8:
+                $image = imagerotate($image, 90, 0);
+            break;
+        }
     }
 
     imagecopyresampled($canvas,
