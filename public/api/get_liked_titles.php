@@ -37,7 +37,7 @@
             $title['count'] = count($title['illusts']);
             $titles []= $title;
         }
-        echo json_encode($titles);
+        echo json_encode(array_reverse($titles));
     }
 
 ?>
