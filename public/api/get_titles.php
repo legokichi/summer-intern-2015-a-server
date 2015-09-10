@@ -33,7 +33,7 @@
                 $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$illust['illust_id']}";
                 $title['illusts'][] = $illust_url;
                 $title['illust_ids'][] = $illust['illust_id'];
-                $title['last_action'] = $illust['date'];
+                $title['last_action'] = max($illust['date'], $title['last_action']);
             }
             $title['count'] = count($title['illusts']);
             $titles []= $title;
