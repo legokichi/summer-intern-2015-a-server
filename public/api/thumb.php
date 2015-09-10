@@ -21,6 +21,9 @@ if(!file_exists("../img/thumb/$id")){
 
     if(isset($exif_datas['Orientation'])){
         switch ($exif_datas['Orientation']) {
+        case 3:
+                $image = imagerotate($image, 180, 0);
+            break;
         case 6:
                 $image = imagerotate($image, 270, 0);
             break;
