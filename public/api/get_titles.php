@@ -25,17 +25,22 @@
     } else {
         $titles = array();
         while ($title = $results->fetchArray(SQLITE3_ASSOC)) {
-            $illustres = $db->query("SELECT illust_id FROM illust WHERE title_id = '{$title['title_id']}'");
+            $title['last_action'] = $title['date'];
+            $illustres = $db->query("SELECT illust_id, date FROM illust WHERE title_id = '{$title['title_id']}' ORDER BY illust_id DESC");
             $title['illusts'] = array();
             $title['illust_ids'] = array();
             while ($illust = $illustres->fetchArray(SQLITE3_ASSOC)) {
                 $illust_url = "http://{$_SERVER['HTTP_HOST']}/img/{$illust['illust_id']}";
                 $title['illusts'][] = $illust_url;
                 $title['illust_ids'][] = $illust['illust_id'];
+                $title['last_action'] = $illust['date'];
             }
             $title['count'] = count($title['illusts']);
             $titles []= $title;
         }
+
+        array_multisort(array_column($titles, 'last_action'), SORT_DESC, $titles);
+
         echo json_encode($titles);
     }
 
