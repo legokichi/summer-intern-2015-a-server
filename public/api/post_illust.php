@@ -52,6 +52,12 @@
     }
 
     list($width, $height, $type, $attr) = $image_size;
+    $exif_data = exif_read_data($filedata['tmp_name']);
+
+    if($exif_data['Orientation'] >= 5) {
+        list($height, $width) = array($width, $height);
+    }
+
 
     $stmt = $db->prepare('INSERT INTO illust (title_id, user_id, user_name, likes, date, width, height) VALUES (:title_id, :user_id, :user_name, 0, :date, :width, :height)');
     $stmt->bindValue(':title_id', $title_id, SQLITE3_INTEGER);
